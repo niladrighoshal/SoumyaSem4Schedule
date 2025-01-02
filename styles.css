@@ -4,96 +4,124 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
-  }
-  
-  h1 {
+    overflow-x: hidden; /* Prevent horizontal scrolling on the body */
+}
+
+h1 {
     text-align: center;
     padding: 10px;
     color: #fff;
     margin: 0;
     background: linear-gradient(90deg, #FF7EB3, #FF758C, #FF6A59); /* Gradient Background */
-  }
-  
-  .table-container {
+}
+
+.table-container {
     width: 100%;
-    overflow-x: auto; /* Prevent horizontal scrolling on small screens */
-  }
-  
-  table {
+    overflow-x: auto; /* This is fine, but we'll control table size in mobile view */
+}
+
+/* Making table fit smaller screens without scrolling */
+table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px auto;
     background: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  th, td {
+    table-layout: fixed; /* Ensures columns adjust to fit the screen */
+}
+
+th, td {
     border: 1px solid #ccc;
     padding: 10px;
     text-align: center;
     font-size: 14px;
-  }
-  
-  th {
+    word-wrap: break-word; /* Break long words to fit into cells */
+}
+
+th {
     background-color: #ddd;
-  }
-  
-  td {
+}
+
+td {
     background-color: #fff;
     color: #000;
     white-space: pre-line; /* Enables line breaks within text */
-  }
-  
-  tr.highlight td {
+}
+
+tr.highlight td {
     background-color: #ffe680; /* Highlight today's row */
-  }
-  
-  /* Hide Row Divider for Multi-Slot Subjects */
-  td.no-divider {
+}
+
+/* Hide Row Divider for Multi-Slot Subjects */
+td.no-divider {
     border-right: none;
-  }
-  
-  /* Subject Text Colors */
-  .subject-applied {
+}
+
+/* Subject Text Colors */
+.subject-applied {
     color: #FB5607; /* Bright Orange */
-  }
-  
-  .subject-astro {
+}
+
+.subject-astro {
     color: #FFBE0B; /* Bright Yellow */
-  }
-  
-  .subject-atomic {
+}
+
+.subject-atomic {
     color: #FF006E; /* Bright Pink */
-  }
-  
-  .subject-gtr {
+}
+
+.subject-gtr {
     color: #8338EC; /* Bright Purple */
-  }
-  
-  .subject-obs {
+}
+
+.subject-obs {
     color: #3A86FF; /* Bright Blue */
-  }
-  
-  /* Free Time Styling */
-  #free-time {
+}
+
+/* Free Time Styling */
+#free-time {
     margin: 20px;
     font-size: 16px;
     text-align: center;
     color: red;
     white-space: pre-line; /* Display free time on new lines */
-  }
-  
-  /* Responsive Design */
-  @media screen and (max-width: 768px) {
-    th, td {
-      font-size: 12px;
-      padding: 5px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden; /* Prevent any horizontal scroll */
     }
-  }
-  
-  @media screen and (min-width: 1024px) {
-    th, td {
-      font-size: 16px;
-      padding: 15px;
+
+    .table-container {
+        overflow-x: hidden; /* Remove the scrollbar */
+        width: 100%;
     }
-  }
+
+    table {
+        width: 100%;
+        font-size: 12px; /* Adjust text size */
+    }
+
+    th, td {
+        padding: 5px;
+        font-size: 10px; /* Make font smaller for smaller screens */
+    }
+
+    /* Adjusting for mobile screens */
+    h1 {
+        font-size: 18px;
+    }
+}
+
+/* For larger screens (default, desktop) */
+@media screen and (min-width: 1024px) {
+    th, td {
+        font-size: 16px;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
